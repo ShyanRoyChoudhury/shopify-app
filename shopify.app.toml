@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "f2d5dd9e93b96afd70790dac46613f1e"
+name = "niche-franchise-app"
+handle = "niche-franchise-app-4"
+application_url = "https://theories-positions-holland-dubai.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "works100.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_orders,write_products"
+
+[auth]
+redirect_urls = [
+  "https://theories-positions-holland-dubai.trycloudflare.com/auth/callback",
+  "https://theories-positions-holland-dubai.trycloudflare.com/auth/shopify/callback",
+  "https://theories-positions-holland-dubai.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled", "orders/create", "orders/updated" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
